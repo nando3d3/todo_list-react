@@ -1,5 +1,6 @@
 import { SquareArrowOutUpRight, ListX } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 function Tasks({ tasks, onTaskClick, deleteTaskClick }) {
   const naviagte = useNavigate();
@@ -29,20 +30,15 @@ function Tasks({ tasks, onTaskClick, deleteTaskClick }) {
           >
             {task.title}
           </button>
-          <button
-            className="bg-slate-400 p-2 rounded-md text-white"
-            title="Ver detalhes"
-            onClick={() => onSeeDetailsClick(task)}
-          >
+          <Button title="Ver detalhes" onClick={() => onSeeDetailsClick(task)}>
             <SquareArrowOutUpRight />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => deleteTaskClick(task.id)}
-            className="bg-slate-400 p-2 rounded-md text-white"
             title="Excluir tarefa"
           >
             <ListX />
-          </button>
+          </Button>
         </li>
       ))}
     </ul>
